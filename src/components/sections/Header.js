@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 
 import { Container } from '@components/global';
 import ExternalLink from '@common/ExternalLink';
+import AustinImg from '../../images/austin.jpg';
 
 const Header = () => (
   <StaticQuery
@@ -26,21 +27,21 @@ const Header = () => (
       <HeaderWrapper>
         <Container>
           <Grid>
-            <Art>
+            {/* <Art>
               <Img fluid={data.art_build.childImageSharp.fluid} />
-            </Art>
+            </Art> */}
             <Text>
               <h1>
-                Fast in
+                Developer
                 <br />
-                every way
+                Traveler
                 <br />
-                that matters
+                Beer Lover
               </h1>
               <br />
               <p>
-                <StyledExternalLink href="https://github.com/ajayns/gatsby-absurd">
-                  Check out source &nbsp;&#x2794;
+                <StyledExternalLink href="https://github.com/akrm19">
+                  Check out my GitHub &nbsp;&#x2794;
                 </StyledExternalLink>
               </p>
             </Text>
@@ -52,7 +53,8 @@ const Header = () => (
 );
 
 const HeaderWrapper = styled.header`
-  background-color: ${props => props.theme.color.primary};
+  background-image: url('${AustinImg}');
+  // background-color: ${props => props.theme.color.primary};
   padding-top: 96px;
 
   @media (max-width: ${props => props.theme.screen.md}) {
@@ -65,9 +67,6 @@ const Art = styled.figure`
   margin: 0;
 
   > div {
-    width: 120%;
-    margin-bottom: -4.5%;
-
     @media (max-width: ${props => props.theme.screen.md}) {
       width: 100%;
     }
@@ -92,6 +91,7 @@ const Grid = styled.div`
 
 const Text = styled.div`
   justify-self: center;
+  color: ${props => props.theme.color.white.dark};
 
   @media (max-width: ${props => props.theme.screen.md}) {
     justify-self: start;
@@ -99,11 +99,11 @@ const Text = styled.div`
 `;
 
 const StyledExternalLink = styled(ExternalLink)`
-  color: inherit;
+  color: ${props => props.theme.color.black.lighter};
   text-decoration: none;
 
   &:hover {
-    color: ${props => props.theme.color.black.regular};
+    color: ${props => props.theme.color.white.regular};
   }
 `;
 
