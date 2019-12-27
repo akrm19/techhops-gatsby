@@ -4,7 +4,7 @@ import { Container } from '@components/global';
 
 export const Nav = styled.nav`
   padding: 16px 0;
-  background-color: ${props => props.theme.color.primary};
+  background-color: ${props => props.theme.color.primary_rgb_transparent};
   position: fixed;
   width: 100%;
   top: 0;
@@ -42,24 +42,35 @@ export const NavListWrapper = styled.div`
 export const NavItem = styled.li`
   margin: 0 0.75em;
   font-family: ${props => props.theme.font.secondary};
-  ${props => props.theme.font_size.small};
+  ${props => props.theme.font_size.regular};
 
   a {
     text-decoration: none;
     opacity: 0.7;
     color: ${props => props.theme.color.black.regular};
+    padding: .4rem;
+    border-radius: 10px;
   }
 
   &.active {
     a {
       opacity: 1;
+      background-color: ${props => props.theme.color.primary};
+    }
+  }
+
+  &:hover {
+    a {
+      opacity: 1;
+      color: ${props => props.theme.color.primary};
+      background-color: ${props => props.theme.color.black.light};
     }
   }
 `;
 
 export const MobileMenu = styled.div`
   width: 100%;
-  background: ${props => props.theme.color.primary};
+  background: inherit;
 `;
 
 export const Brand = styled.div`
