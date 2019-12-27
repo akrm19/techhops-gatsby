@@ -62,16 +62,16 @@ const HeaderWrapper = styled.header`
   }
 `;
 
-const Art = styled.figure`
-  width: 100%;
-  margin: 0;
+// const Art = styled.figure`
+//   width: 100%;
+//   margin: 0;
 
-  > div {
-    @media (max-width: ${props => props.theme.screen.md}) {
-      width: 100%;
-    }
-  }
-`;
+//   > div {
+//     @media (max-width: ${props => props.theme.screen.md}) {
+//       width: 100%;
+//     }
+//   }
+// `;
 
 const Grid = styled.div`
   display: grid;
@@ -83,9 +83,7 @@ const Grid = styled.div`
     grid-template-columns: 1fr;
     grid-gap: 80px;
 
-    > ${Art} {
-      order: 2;
-    }
+
   }
 `;
 
