@@ -38,7 +38,7 @@ const TEAM = [
   },
 ];
 
-const Team = () => (
+const Projects = () => (
   <StaticQuery
     query={graphql`
       query {
@@ -158,4 +158,4 @@ const Subtitle = styled.p`
   color: ${props => props.theme.color.black.light};
 `;
 
-export default Team;
+export default Projects;
