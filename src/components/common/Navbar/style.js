@@ -55,15 +55,16 @@ export const NavItem = styled.li`
   &.active {
     a {
       opacity: 1;
-      background-color: ${props => props.theme.color.primary};
+      color: ${props => props.theme.color.primary};
+      background-color: ${props => props.theme.color.black.light};
     }
   }
 
   &:hover {
     a {
       opacity: 1;
-      color: ${props => props.theme.color.primary};
-      background-color: ${props => props.theme.color.black.light};
+      color: ${props => props.theme.color.black.regular};
+      background-color: ${props => props.theme.color.primary};
     }
   }
 `;
