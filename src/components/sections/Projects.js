@@ -18,6 +18,18 @@ const Portfolio = [
     image: 'write2Congress_react.png',
     url: 'http://www.write2congress.com/',
   },
+  {
+    name: 'Write 2 Congress - Android App 2',
+    description: 'Android App to view bills, legislators, their vote history, sponsored bills, committees, and contact info.',
+    image: 'write2Congress_android.jpg', 
+    url: 'https://play.google.com/store/apps/details?id=com.ron.write2congress',
+  },
+  {
+    name: 'Write 2 Congress - Web 2',
+    description: 'Write 2 Congress version written in React.',
+    image: 'write2Congress_react.png',
+    url: 'http://www.write2congress.com/',
+  },
 ];
 
 const Projects = () => (
@@ -49,13 +61,8 @@ const Projects = () => (
               ).node;
 
               return (
-                // <ExternalLink key={url} href={url}>
-                //     <Title>{name}</Title>
-                //     <Img fluid={img.childImageSharp.fluid} alt={name} />
-                //     <Subtitle>{description}</Subtitle>
-                // </ExternalLink>
-                <ExternalLink key={url} href={url}>
-                  <div key={name}>
+                <ExternalLink key={name} href={url}>
+                  <div >
                     <Title>{name}</Title>
                     <Img fluid={img.childImageSharp.fluid} alt={name} />
                     <Subtitle>{description}</Subtitle>
@@ -72,11 +79,11 @@ const Projects = () => (
 
 const TeamGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-columns: repeat(auto-fill, 400px);
   grid-template-rows: min-content;
   grid-gap: 50px;
   justify-content: space-between;
-  width: 60%;
+  width: 100%;
   margin-top: 72px;
 
   a:link {
