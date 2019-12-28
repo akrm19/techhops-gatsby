@@ -61,11 +61,6 @@ const Projects = () => (
                     <Subtitle>{description}</Subtitle>
                   </div>
                 </ExternalLink>
-                // <div key={name}>
-                //   <Title>{name}</Title>
-                //   <Img fluid={img.childImageSharp.fluid} alt={name} />
-                //   <Subtitle>{description}</Subtitle>
-                // </div>
               );
             })}
           </TeamGrid>
@@ -83,6 +78,14 @@ const TeamGrid = styled.div`
   justify-content: space-between;
   width: 60%;
   margin-top: 72px;
+
+  a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
 
   @media (max-width: ${props => props.theme.screen.lg}) {
     justify-content: start;
