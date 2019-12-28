@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Container } from '@components/global';
 import ExternalLink from '@common/ExternalLink';
-import AustinImg from '../../images/austin.jpg';
+import AustinImg from '../../images/austin3.png';
 
 const Header = () => {
   return (
@@ -33,7 +33,10 @@ const Header = () => {
 
 const HeaderWrapper = styled.header`
   background-image: url('${AustinImg}');
+  background: linear-gradient(to right, rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.2)), url('${AustinImg}');
+  background-size: cover;
   padding-top: 96px;
+  padding-bottom: 2em;
 
   @media (max-width: ${props => props.theme.screen.md}) {
     padding-top: 128px;
