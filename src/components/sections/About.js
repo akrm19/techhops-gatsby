@@ -5,35 +5,26 @@ import Img from 'gatsby-image';
 
 import { Section, Container } from '@components/global';
 
+const title = 'Hi I am Ron';
+const aboutMeText = 
+`I am Software Engineer. Avid traveler. Runner.
+More stuff here
+I am Software Engineer. Avid traveler. Runner.
+More stuff here
+I am Software Engineer. Avid traveler. Runner.
+More stuff here
+I am Software Engineer. Avid traveler. Runner.
+More stuff here
+I am Software Engineer. Avid traveler. Runner.
+More stuff here`;
+
 const About = () => (
   <StaticQuery
     query={graphql`
       query {
-        art_fast: file(
-          sourceInstanceName: { eq: "art" }
-          name: { eq: "fast" }
-        ) {
-          childImageSharp {
-            fluid(maxWidth: 760) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-          }
-        }
-
-        art_learn: file(
-          sourceInstanceName: { eq: "art" }
-          name: { eq: "learn_yourself" }
-        ) {
-          childImageSharp {
-            fluid(maxWidth: 760) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-          }
-        }
-
-        art_ideas: file(
-          sourceInstanceName: { eq: "art" }
-          name: { eq: "ideas" }
+        photo_ron: file(
+          sourceInstanceName: { eq: "photos" }
+          name: { eq: "ron" }
         ) {
           childImageSharp {
             fluid(maxWidth: 760) {
@@ -46,43 +37,25 @@ const About = () => (
     render={data => (
       <Section id="about">
         <Container>
-          <Grid>
+          {/* <Grid>
             <div>
-              <h2>Hi, I am Ron</h2>
+              <h2>{title}</h2>
               <p>
-                I am Software Engineer. Avid traveler. Runner.
-                More stuff here
-                I am Software Engineer. Avid traveler. Runner.
-                More stuff here
-                I am Software Engineer. Avid traveler. Runner.
-                More stuff here
-                I am Software Engineer. Avid traveler. Runner.
-                More stuff here
-                I am Software Engineer. Avid traveler. Runner.
-                More stuff here
+                {aboutMeText}
               </p>
             </div>
             <Art>
-              <Img fluid={data.art_fast.childImageSharp.fluid} />
+              <Img fluid={data.photo_ron.childImageSharp.fluid} />
             </Art>
-          </Grid>
+          </Grid> */}
           <Grid inverse>
             <Art>
-              <Img fluid={data.art_learn.childImageSharp.fluid} />
+              <Img fluid={data.photo_ron.childImageSharp.fluid} />
             </Art>
             <div>
-              <h2>Nothing new to learn here</h2>
+              <h2>{title}</h2>
               <p>
-              I am Software Engineer. Avid traveler. Runner.
-                More stuff here
-                I am Software Engineer. Avid traveler. Runner.
-                More stuff here
-                I am Software Engineer. Avid traveler. Runner.
-                More stuff here
-                I am Software Engineer. Avid traveler. Runner.
-                More stuff here
-                I am Software Engineer. Avid traveler. Runner.
-                More stuff here
+                {aboutMeText}
               </p>
             </div>
           </Grid>
@@ -110,6 +83,10 @@ const Grid = styled.div`
 
   h2 {
     margin-bottom: 16px;
+  }
+
+  img {
+    border-radius: 10px;
   }
 
   @media (max-width: ${props => props.theme.screen.md}) {
