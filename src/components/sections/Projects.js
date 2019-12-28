@@ -82,9 +82,9 @@ const TeamGrid = styled.div`
   grid-template-columns: repeat(auto-fill, 400px);
   grid-template-rows: min-content;
   grid-gap: 50px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
-  margin-top: 72px;
+  margin-top: 2.5em;
 
   a:link {
     text-decoration: none;
@@ -100,7 +100,7 @@ const TeamGrid = styled.div`
 
   @media (max-width: ${props => props.theme.screen.md}) {
     width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 
   @media (max-width: ${props => props.theme.screen.xs}) {
@@ -109,13 +109,16 @@ const TeamGrid = styled.div`
 `;
 
 const Title = styled.p`
-  margin-top: 16px;
+  margin-top: 1.5em;
+  margin-bottom: .5em;
+  text-align: center;
   color: ${props => props.theme.color.black.regular};
 `;
 
 const Subtitle = styled.p`
   ${props => props.theme.font_size.small};
   color: ${props => props.theme.color.black.light};
+  padding-top: .5em;
 `;
 
 export default Projects;
