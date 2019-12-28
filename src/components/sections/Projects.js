@@ -2,8 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import ExternalLink from '@common/ExternalLink';
 
 import { Section, Container } from '@components/global';
+
+const Portfolio = [
+  {
+    name: 'Write 2 Congress - Android App',
+    description: 'Android App to view bills, legislators, their vote history, sponsored bills, committees, and contact info.',
+    image: 'write2Congress_android.jpg', 
+    url: 'https://play.google.com/store/apps/details?id=com.ron.write2congress',
+  },
+  {
+    name: 'Write 2 Congress - Web',
+    description: 'Write 2 Congress version written in React.',
+    image: 'write2Congress_react.png',
+    url: 'http://www.write2congress.com/',
+  },
+];
 
 const TEAM = [
   {
@@ -42,7 +58,7 @@ const Projects = () => (
   <StaticQuery
     query={graphql`
       query {
-        allFile(filter: { sourceInstanceName: { eq: "team" } }) {
+        allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
           edges {
             node {
               relativePath
@@ -69,8 +85,35 @@ const Projects = () => (
     render={data => (
       <Section id="projects" accent="secondary">
         <Container style={{ position: 'relative' }}>
-          <h1>The Team</h1>
+          <h1>Projects</h1>
           <TeamGrid>
+            {Portfolio.map(({ name, description, image, url }) => {
+              const img = data.allFile.edges.find(
+                ({ node }) => node.relativePath === image
+              ).node;
+
+              return (
+                // <ExternalLink key={url} href={url}>
+                //     <Title>{name}</Title>
+                //     <Img fluid={img.childImageSharp.fluid} alt={name} />
+                //     <Subtitle>{description}</Subtitle>
+                // </ExternalLink>
+                <ExternalLink key={url} href={url}>
+                  <div key={name}>
+                    <Title>{name}</Title>
+                    <Img fluid={img.childImageSharp.fluid} alt={name} />
+                    <Subtitle>{description}</Subtitle>
+                  </div>
+                </ExternalLink>
+                // <div key={name}>
+                //   <Title>{name}</Title>
+                //   <Img fluid={img.childImageSharp.fluid} alt={name} />
+                //   <Subtitle>{description}</Subtitle>
+                // </div>
+              );
+            })}
+          </TeamGrid>
+          {/* <TeamGrid>
             {TEAM.map(({ name, image, role }) => {
               const img = data.allFile.edges.find(
                 ({ node }) => node.relativePath === image
@@ -84,7 +127,7 @@ const Projects = () => (
                 </div>
               );
             })}
-          </TeamGrid>
+          </TeamGrid> */}
           <Art>
             <Img fluid={data.art_team.childImageSharp.fluid} />
           </Art>
