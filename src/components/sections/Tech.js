@@ -22,56 +22,56 @@ import { ReactComponent as AzureLogo } from '@images/logos/azure.svg';
 
 const LOGOS = [
   {
-    logo: AndroidLogo,
-    link: 'https://airbnb.io',
-  },
-  {
-    logo: AspDotNetLogo,
-    link: 'https://www.apple.com/in/music/',
-  },
-  {
-    logo: AzureLogo,
-    link: 'https://www.apple.com/in/music/',
-  },
-  {
     logo: CSharpLogo,
-    link: 'https://coca-cola.com',
-  },
-  {
-    logo: Css3Logo,
-    link: 'https://nike.com',
-  },
-  {
-    logo: Html5Logo,
-    link: 'https://instagram.com',
+    link: 'https://csharp.net',
   },
   {
     logo: JavaScriptLogo,
     link: 'https://developer.mozilla.org/en-US/docs/Web/javascript',
   },
   {
-    logo: JiraLogo,
-    link: 'https://developer.mozilla.org/en-US/docs/Web/javascript',
+    logo: Css3Logo,
+    link: 'https://www.w3.org/Style/CSS/Overview.en.html',
   },
   {
-    logo: GitLogo,
-    link: 'https://developer.mozilla.org/en-US/docs/Web/javascript',
+    logo: Html5Logo,
+    link: 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5',
   },
   {
-    logo: NodeLogo,
-    link: 'https://nodejs.org',
+    logo: AndroidLogo,
+    link: 'https://developer.android.com/',
+  },
+  {
+    logo: XamarinLogo,
+    link: 'https://dotnet.microsoft.com/apps/xamarin',
   },
   {
     logo: ReactLogo,
     link: 'https://reactjs.org/',
   },
   {
+    logo: AzureLogo,
+    link: 'https://www.azure.com/',
+  },
+  {
     logo: SqlLogo,
     link: 'https://en.wikipedia.org/wiki/SQL',
   },
   {
-    logo: XamarinLogo,
-    link: 'https://dotnet.microsoft.com/apps/xamarin',
+    logo: GitLogo,
+    link: 'https://git-scm.com/',
+  },
+  {
+    logo: NodeLogo,
+    link: 'https://nodejs.org',
+  },
+  {
+    logo: AspDotNetLogo,
+    link: 'https://dotnet.microsoft.com/apps/aspnet',
+  },
+  {
+    logo: JiraLogo,
+    link: 'https://www.atlassian.com/software/jira',
   },
 ];
 
@@ -92,9 +92,9 @@ const UsedBy = () => (
       }
     `}
     render={data => (
-      <Section id="brands" accent>
+      // <Section id="brands" accent="secondary" >
+      <Section id="brands" >
         <StyledContainer>
-          <div>
             <h1>Technologies Used</h1>
             <LogoGrid>
               {LOGOS.map(({ logo, link }) => (
@@ -103,7 +103,6 @@ const UsedBy = () => (
                 </ExternalLink>
               ))}
             </LogoGrid>
-          </div>
         </StyledContainer>
       </Section>
     )}
@@ -112,31 +111,26 @@ const UsedBy = () => (
 
 const LogoGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 64px;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  grid-template-rows: min-content;
+  grid-gap: 60px;
   justify-items: center;
-  margin-top: 96px;
+  width: 100%;
+  margin-top: 5.5em;
+  align-items: center;
 
   a {
     svg {
-      max-width: 20em;
+      max-width: 10em;
       max-height: 10em;
     }
-  }
-
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    grid-template-columns: 1fr;
   }
 `;
 
 const StyledContainer = styled(Container)`
   display: flex;
-  justify-content: flex-end;
-  position: relative;
-
-  @media (max-width: ${props => props.theme.screen.md}) {
-    justify-content: center;
-  }
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export default UsedBy;
