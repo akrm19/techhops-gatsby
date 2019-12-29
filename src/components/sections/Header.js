@@ -16,6 +16,8 @@ const Header = () => {
               <br />
               Traveler
               <br />
+              Runner
+              <br />
               Beer Lover
             </h1>
             <br />
