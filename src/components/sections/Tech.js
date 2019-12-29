@@ -1,42 +1,77 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 
 import { Section, Container } from '@components/global';
 import ExternalLink from '@common/ExternalLink';
 
-import { ReactComponent as AirbnbLogo } from '@images/logos/airbnb.svg';
-import { ReactComponent as AppleMusicLogo } from '@images/logos/apple-music.svg';
-import { ReactComponent as CokeLogo } from '@images/logos/coca-cola.svg';
 import { ReactComponent as NodeLogo } from '@images/logos/nodejs.svg';
-import { ReactComponent as NikeLogo } from '@images/logos/nike.svg';
-import { ReactComponent as InstagramLogo } from '@images/logos/instagram.svg';
+import { ReactComponent as AndroidLogo } from '@images/logos/android.svg';
+import { ReactComponent as CSharpLogo } from '@images/logos/cSharp.svg';
+import { ReactComponent as Css3Logo } from '@images/logos/css3.svg';
+import { ReactComponent as Html5Logo } from '@images/logos/html5.svg';
+import { ReactComponent as JavaScriptLogo } from '@images/logos/javascript.svg';
+import { ReactComponent as ReactLogo } from '@images/logos/react.svg';
+import { ReactComponent as SqlLogo } from '@images/logos/sql.svg';
+import { ReactComponent as XamarinLogo } from '@images/logos/xamarin.svg';
+import { ReactComponent as JiraLogo } from '@images/logos/jira.svg';
+import { ReactComponent as GitLogo } from '@images/logos/GitLogo.svg';
+import { ReactComponent as AspDotNetLogo } from '@images/logos/AspNet.svg';
+import { ReactComponent as AzureLogo } from '@images/logos/azure.svg';
+
 
 const LOGOS = [
   {
-    logo: AirbnbLogo,
+    logo: AndroidLogo,
     link: 'https://airbnb.io',
   },
   {
-    logo: AppleMusicLogo,
+    logo: AspDotNetLogo,
     link: 'https://www.apple.com/in/music/',
   },
   {
-    logo: CokeLogo,
+    logo: AzureLogo,
+    link: 'https://www.apple.com/in/music/',
+  },
+  {
+    logo: CSharpLogo,
     link: 'https://coca-cola.com',
+  },
+  {
+    logo: Css3Logo,
+    link: 'https://nike.com',
+  },
+  {
+    logo: Html5Logo,
+    link: 'https://instagram.com',
+  },
+  {
+    logo: JavaScriptLogo,
+    link: 'https://developer.mozilla.org/en-US/docs/Web/javascript',
+  },
+  {
+    logo: JiraLogo,
+    link: 'https://developer.mozilla.org/en-US/docs/Web/javascript',
+  },
+  {
+    logo: GitLogo,
+    link: 'https://developer.mozilla.org/en-US/docs/Web/javascript',
   },
   {
     logo: NodeLogo,
     link: 'https://nodejs.org',
   },
   {
-    logo: NikeLogo,
-    link: 'https://nike.com',
+    logo: ReactLogo,
+    link: 'https://reactjs.org/',
   },
   {
-    logo: InstagramLogo,
-    link: 'https://instagram.com',
+    logo: SqlLogo,
+    link: 'https://en.wikipedia.org/wiki/SQL',
+  },
+  {
+    logo: XamarinLogo,
+    link: 'https://dotnet.microsoft.com/apps/xamarin',
   },
 ];
 
@@ -60,7 +95,7 @@ const UsedBy = () => (
       <Section id="brands" accent>
         <StyledContainer>
           <div>
-            <h1>Used by biggest in tech</h1>
+            <h1>Technologies Used</h1>
             <LogoGrid>
               {LOGOS.map(({ logo, link }) => (
                 <ExternalLink key={link} href={link}>
@@ -69,9 +104,6 @@ const UsedBy = () => (
               ))}
             </LogoGrid>
           </div>
-          <Art>
-            <Img fluid={data.art_story.childImageSharp.fluid} />
-          </Art>
         </StyledContainer>
       </Section>
     )}
@@ -87,7 +119,8 @@ const LogoGrid = styled.div`
 
   a {
     svg {
-      width: 100%;
+      max-width: 20em;
+      max-height: 10em;
     }
   }
 
@@ -103,23 +136,6 @@ const StyledContainer = styled(Container)`
 
   @media (max-width: ${props => props.theme.screen.md}) {
     justify-content: center;
-  }
-`;
-
-const Art = styled.figure`
-  width: 600px;
-  position: absolute;
-  top: -12%;
-  right: 50%;
-
-  @media (max-width: ${props => props.theme.screen.lg}) {
-    top: 0;
-    right: 65%;
-    width: 500px;
-  }
-
-  @media (max-width: ${props => props.theme.screen.md}) {
-    display: none;
   }
 `;
 
