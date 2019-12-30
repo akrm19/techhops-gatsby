@@ -8,6 +8,7 @@ import About from '@sections/About';
 import Tech from '@sections/Tech';
 import Projects from '@sections/Projects';
 import Faq from '@sections/Faq';
+import Contact from '@sections/Contact';
 import Footer from '@sections/Footer';
 
 const IndexPage = () => (
@@ -18,6 +19,7 @@ const IndexPage = () => (
     <Projects />
     <Tech />
     <Faq />
+    <Contact />
     <Footer />
   </Layout>
 );
