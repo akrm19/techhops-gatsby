@@ -12,7 +12,7 @@ import EmailIcon from '@static/icons/email.svg';
 
 const title = 'Contact';
 const contactText = 
-`Want to work together, offer me a high-paying job?`;
+`Ready to work together or have question? Feel free to reach out:`;
 
 const contactMethods = [
   {
@@ -74,6 +74,8 @@ const Grid = styled.div`
 
 const ContactMethods = styled.div`
   padding-top: 4em;
+  display: flex;
+  flex-direction: column;
 
   a {
     text-decoration: none;
@@ -92,6 +94,30 @@ const ContactMethods = styled.div`
 
   span {
     line-height: 1.2em;
+  }
+
+  @media (max-width: ${props => props.theme.screen.lg}) {
+    padding-top: 1em;
+
+    p {
+      margin-top: .5em;
+      margin-bottom: .5em;
+    }
+  }
+
+  @media (max-width: ${props => props.theme.screen.md}) {
+    padding-top: 1.5em;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    padding-top: .3em;
+    justify-content: space-evenly;
+
+    span {
+      display: none;
+    }
   }
 `;
 
@@ -145,8 +171,11 @@ const Contact = () => (
 
 const Art = styled.figure`
   margin: 0;
-  // max-width: 480px;
   width: 100%;
+
+  @media (max-width: ${props => props.theme.screen.md}) {
+    width: inheirt;
+  }
 `;
 
 export default Contact;
