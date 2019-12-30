@@ -134,7 +134,7 @@ const Contact = () => (
               </ContactMethods>
             </div>
             <Art>
-              <Img fluid={data.photo_ron.childImageSharp.fluid} />
+              <Img fluid={data.photo_ron.childImageSharp.fluid} alt={'Austin Skyline - photo by Dwayne Hills'} />
             </Art>
           </Grid>
         </Container>

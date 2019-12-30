@@ -7,10 +7,10 @@ const Footer = () => {
       <FooterWrapper>
         <Copyright>
           <span>
-            Pictures by Some name
+            Austin Photos from Unsplash
           </span>
           <span>
-            Design modified from Absurd
+            Design modified from Gatsby-absurd 
           </span>
           <span>
             &copy; Copyright 2020, TechHops.
