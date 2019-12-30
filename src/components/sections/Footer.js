@@ -1,27 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { Container } from '@components/global';
-import ExternalLink from '@common/ExternalLink';
-
-// import GithubIcon from '@static/icons/github.svg';
-// import InstagramIcon from '@static/icons/instagram.svg';
-// import TwitterIcon from '@static/icons/twitter.svg';
-
-// const SOCIAL = [
-//   {
-//     icon: GithubIcon,
-//     link: 'https://github.com/ajayns/gatsby-absurd',
-//   },
-//   {
-//     icon: InstagramIcon,
-//     link: 'https://instagram.com/ajay_ns',
-//   },
-//   {
-//     icon: TwitterIcon,
-//     link: 'https://twitter.com/ajayns08',
-//   },
-// ];
 
 const Footer = () => {
   return (
@@ -39,36 +18,22 @@ const Footer = () => {
               &copy; Copyright 2020, TechHops.
             </span>
           </Copyright>
-          {/* <SocialIcons>
-            {SOCIAL.map(({ icon, link }) => (
-              <ExternalLink key={link} href={link}>
-                <img src={icon} alt="link" />
-              </ExternalLink>
-            ))}
-          </SocialIcons> */}
         </StyledContainer>
       </FooterWrapper>
     </React.Fragment>
   )
 }
 
-// const SocialIcons = styled.div`
-//   display: flex;
-
-//   img {
-//     margin: 0 8px;
-//     width: 24px;
-//     height: 24px;
-//   }
-
-//   @media (max-width: ${props => props.theme.screen.sm}) {
-//     margin-top: 40px;
-//   }
-// `;
-
 const FooterWrapper = styled.footer`
   background-color: ${props => props.theme.color.primary};
-  padding: 32px 0;
+  padding-top: 4em;
+  padding-bottom: 3em;
+
+
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    padding-top: 3em;
+    padding-bottom: 1em;
+  }
 `;
 
 const Copyright = styled.div`
@@ -81,24 +46,30 @@ const Copyright = styled.div`
   color: ${props => props.theme.color.black.regular};
 
   span {
-    padding-left: .3em;
-    padding-right: .3em;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+  }
+
+  @media (max-width: ${props => props.theme.screen.md}) {
+    span {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
   }
 
   @media (max-width: ${props => props.theme.screen.sm}) {
     flex-direction: column;
+
+    span {
+
+      &:last-child {
+        padding-top: 2em;
+      }
+    } 
   }
 `;
 
 const StyledContainer = styled(Container)`
-  // display: flex;
-  // justify-content: space-between;
-  // align-items: center;
-
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    // flex-direction: column;
-    // text-align: center;
-  }
 `;
 
 export default Footer;
