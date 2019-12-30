@@ -56,7 +56,7 @@ export const NavItem = styled.li`
     a {
       opacity: 1;
       color: ${props => props.theme.color.primary};
-      background-color: ${props => props.theme.color.black.light};
+      background-color: ${props => props.theme.color.black.regular};
     }
   }
 
