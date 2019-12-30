@@ -81,7 +81,7 @@ const ContactMethods = styled.div`
 
   img{
     margin-left: .4em;
-    height: 1.5em;
+    height: 1.2em;
     vertical-align: bottom;
   }
 
@@ -91,7 +91,7 @@ const ContactMethods = styled.div`
   }
 
   span {
-    line-height: 1.5em;
+    line-height: 1.2em;
   }
 `;
 
@@ -121,10 +121,8 @@ const Contact = () => (
                 {contactText}
               </p>
               <ContactMethods>
-                {contactMethods.map(({name, url, icon}) => {
-                  return url 
-                  ?
-                    <ExternalLink key={name} href={name}>
+                {contactMethods.map(({name, url, icon}) =>
+                    <ExternalLink key={name} href={url ? url : `mailto:` + name}>
                       <p key={name}>
                         <span>
                           {name}
@@ -132,17 +130,7 @@ const Contact = () => (
                         <img src={icon} alt="link" />
                       </p>
                     </ExternalLink>
-                  :
-                    <ExternalLink key={name} href={`mailto:`+name}>
-                      <p key={name}>
-                        <span>
-                          {name}
-                        </span>
-                        <img src={icon} alt="link" />
-                      </p>
-                    </ExternalLink>
-                  })
-                }
+                )}
               </ContactMethods>
             </div>
             <Art>
