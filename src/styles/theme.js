@@ -4,6 +4,7 @@ const theme = {
     secondary: `'Average', serif`,
   },
   font_size: {
+    xsmall: 'font-size: 80%; line-height: 1.4',
     small: 'font-size: 20px; line-height: 30px',
     regular: 'font-size: 24px; line-height: 32px',
     large: 'font-size: 30px; line-height: 40px',
