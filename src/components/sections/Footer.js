@@ -1,24 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Container } from '@components/global';
 
 const Footer = () => {
   return (
     <React.Fragment>
       <FooterWrapper>
-        <StyledContainer>
-          <Copyright>
-            <span>
-              Pictures by Some name
-            </span>
-            <span>
-              Design modified from Absurd
-            </span>
-            <span>
-              &copy; Copyright 2020, TechHops.
-            </span>
-          </Copyright>
-        </StyledContainer>
+        <Copyright>
+          <span>
+            Pictures by Some name
+          </span>
+          <span>
+            Design modified from Absurd
+          </span>
+          <span>
+            &copy; Copyright 2020, TechHops.
+          </span>
+        </Copyright>
       </FooterWrapper>
     </React.Fragment>
   )
@@ -67,9 +64,6 @@ const Copyright = styled.div`
       }
     } 
   }
-`;
-
-const StyledContainer = styled(Container)`
 `;
 
 export default Footer;
