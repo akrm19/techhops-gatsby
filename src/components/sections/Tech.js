@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StaticQuery, graphql } from 'gatsby';
 
 import { Section, Container } from '@components/global';
 import ExternalLink from '@common/ExternalLink';
@@ -18,7 +17,6 @@ import { ReactComponent as JiraLogo } from '@images/logos/jira.svg';
 import { ReactComponent as GitLogo } from '@images/logos/GitLogo.svg';
 import { ReactComponent as AspDotNetLogo } from '@images/logos/AspNet.svg';
 import { ReactComponent as AzureLogo } from '@images/logos/azure.svg';
-
 
 const LOGOS = [
   {
@@ -75,23 +73,8 @@ const LOGOS = [
   },
 ];
 
-const UsedBy = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        art_story: file(
-          sourceInstanceName: { eq: "art" }
-          name: { eq: "tell_story" }
-        ) {
-          childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-          }
-        }
-      }
-    `}
-    render={data => (
+const Tech = () => {
+    return (
       // <Section id="brands" accent="secondary" >
       <Section id="brands" >
         <StyledContainer>
@@ -105,9 +88,8 @@ const UsedBy = () => (
             </LogoGrid>
         </StyledContainer>
       </Section>
-    )}
-  />
-);
+    )
+  }
 
 const LogoGrid = styled.div`
   display: grid;
@@ -133,4 +115,4 @@ const StyledContainer = styled(Container)`
   justify-content: center;
 `;
 
-export default UsedBy;
+export default Tech;
