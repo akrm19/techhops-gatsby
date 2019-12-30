@@ -73,7 +73,7 @@ const Grid = styled.div`
 `;
 
 const ContactMethods = styled.div`
-  padding-top: 5em;
+  padding-top: 4em;
 
   a {
     text-decoration: none;
@@ -81,10 +81,17 @@ const ContactMethods = styled.div`
 
   img{
     margin-left: .4em;
+    height: 1.5em;
+    vertical-align: bottom;
   }
 
   p {
-    
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  span {
+    line-height: 1.5em;
   }
 `;
 
@@ -117,17 +124,23 @@ const Contact = () => (
                 {contactMethods.map(({name, url, icon}) => {
                   return url 
                   ?
-                    <ExternalLink key={name} href={url}>
+                    <ExternalLink key={name} href={name}>
                       <p key={name}>
-                        {name}
+                        <span>
+                          {name}
+                        </span>
                         <img src={icon} alt="link" />
                       </p>
                     </ExternalLink>
                   :
-                    <p key={name}>
-                        {name}
+                    <ExternalLink key={name} href={`mailto:`+name}>
+                      <p key={name}>
+                        <span>
+                          {name}
+                        </span>
                         <img src={icon} alt="link" />
-                    </p>
+                      </p>
+                    </ExternalLink>
                   })
                 }
               </ContactMethods>
