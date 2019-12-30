@@ -76,7 +76,7 @@ const LOGOS = [
 const Tech = () => {
     return (
       // <Section id="brands" accent="secondary" >
-      <Section id="brands" >
+      <Section id="tech" >
         <StyledContainer>
             <h1>Technologies Used</h1>
             <LogoGrid>
