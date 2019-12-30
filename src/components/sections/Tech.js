@@ -36,6 +36,10 @@ const LOGOS = [
     link: 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5',
   },
   {
+    logo: SqlLogo,
+    link: 'https://en.wikipedia.org/wiki/SQL',
+  },
+  {
     logo: AndroidLogo,
     link: 'https://developer.android.com/',
   },
@@ -50,10 +54,6 @@ const LOGOS = [
   {
     logo: AzureLogo,
     link: 'https://www.azure.com/',
-  },
-  {
-    logo: SqlLogo,
-    link: 'https://en.wikipedia.org/wiki/SQL',
   },
   {
     logo: GitLogo,
