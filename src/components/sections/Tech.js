@@ -95,16 +95,17 @@ const LogoGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
   grid-template-rows: min-content;
-  grid-gap: 60px;
+  grid-gap: 2em;
   justify-items: center;
   width: 100%;
-  margin-top: 5.5em;
+  margin-top: 3.5em;
   align-items: center;
 
   a {
     svg {
+      // max-width: 10em;
       max-width: 10em;
-      max-height: 10em;
+      max-height: 6em;
     }
   }
 `;
