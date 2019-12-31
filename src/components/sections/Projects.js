@@ -19,10 +19,10 @@ const Portfolio = [
     url: 'http://www.write2congress.com/',
   },
   {
-    name: 'Write 2 Congress - Android App 2',
-    description: 'Android App to view bills, legislators, their vote history, sponsored bills, committees, and contact info.',
-    image: 'write2Congress_android.jpg', 
-    url: 'https://play.google.com/store/apps/details?id=com.ron.write2congress',
+    name: 'Drum Kit Game',
+    description: 'A drum kit game created in React and inspired by the vanilla JS Drum Kit from JavaScript 30.',
+    image: 'DrumKitGame.png', 
+    url: 'http://drum-kit-game.azurewebsites.net/',
   },
   {
     name: 'Write 2 Congress - Web 2',
@@ -53,7 +53,7 @@ const Projects = () => (
     render={data => (
       <Section id="projects" accent="secondary">
         <Container style={{ position: 'relative' }}>
-          <h1>Projects</h1>
+          <h1>Recent Projects</h1>
           <TeamGrid>
             {Portfolio.map(({ name, description, image, url }) => {
               const img = data.allFile.edges.find(
