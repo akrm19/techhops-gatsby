@@ -82,8 +82,7 @@ const ProjCard = styled.div`
   border: 1px solid rgb(233, 233, 233);
   ${props => props.theme.image.border_radius}
   box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-
-  transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+  height: 35em;
 
   :hover {
     box-shadow: 0 25px 35px rgba(0,0,0,0.3);
@@ -96,6 +95,15 @@ const ProjCard = styled.div`
 
   img {
     ${props => props.theme.image.border_radius}
+  }
+
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    height: auto;
+    max-height: 35em;
+
+    img {
+      // max-height: 25em;
+    }
   }
 `;
 
