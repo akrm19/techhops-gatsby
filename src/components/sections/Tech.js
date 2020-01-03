@@ -16,7 +16,7 @@ import { ReactComponent as XamarinLogo } from '@images/logos/xamarin.svg';
 import { ReactComponent as JiraLogo } from '@images/logos/jira.svg';
 import { ReactComponent as GitLogo } from '@images/logos/GitLogo.svg';
 import { ReactComponent as AspDotNetLogo } from '@images/logos/AspNet.svg';
-import { ReactComponent as AzureLogo } from '@images/logos/azure.svg';
+import { ReactComponent as AzureLogo } from '@images/logos/Azure.svg';
 
 const LOGOS = [
   {
