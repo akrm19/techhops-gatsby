@@ -24,12 +24,6 @@ const Portfolio = [
     image: 'DrumKitGame.png', 
     url: 'http://drum-kit-game.azurewebsites.net/',
   },
-  {
-    name: 'Write 2 Congress - Web 2',
-    description: 'Write 2 Congress version written in React.',
-    image: 'write2Congress_react.png',
-    url: 'http://www.write2congress.com/',
-  },
 ];
 
 const Projects = () => (
