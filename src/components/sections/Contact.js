@@ -12,7 +12,7 @@ import EmailIcon from '@static/icons/email.svg';
 
 const title = 'Contact';
 const contactText = 
-`Ready to work together or have question? Feel free to reach out:`;
+`Ready to work together or have a question? Feel free to reach out:`;
 
 const contactMethods = [
   {
