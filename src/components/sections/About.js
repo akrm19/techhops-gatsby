@@ -85,7 +85,7 @@ const Grid = styled.div`
   }
 
   img {
-    border-radius: 10px;
+    ${props => props.theme.image.border_radius}
   }
 
   @media (max-width: ${props => props.theme.screen.md}) {

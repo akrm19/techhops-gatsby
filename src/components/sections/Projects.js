@@ -51,7 +51,8 @@ const Projects = () => (
       }
     `}
     render={data => (
-      <Section id="projects" accent="secondary">
+      // <Section id="projects" accent="secondary">
+      <Section id="projects">
         <Container style={{ position: 'relative' }}>
           <h1>Recent Projects</h1>
           <TeamGrid>
@@ -62,11 +63,11 @@ const Projects = () => (
 
               return (
                 <ExternalLink key={name} href={url}>
-                  <div >
-                    <Title>{name}</Title>
+                  <ProjCard>
                     <Img fluid={img.childImageSharp.fluid} alt={name} />
+                    <Title>{name}</Title>
                     <Subtitle>{description}</Subtitle>
-                  </div>
+                  </ProjCard>
                 </ExternalLink>
               );
             })}
@@ -76,6 +77,27 @@ const Projects = () => (
     )}
   />
 );
+
+const ProjCard = styled.div`
+  border: 1px solid rgb(233, 233, 233);
+  ${props => props.theme.image.border_radius}
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+
+  transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+
+  :hover {
+    box-shadow: 0 25px 35px rgba(0,0,0,0.3);
+  }
+  
+  :active {
+    border: 3px solid rgba(0,0,0,0.0);
+    box-shadow: 0 25px 35px rgba(0,0,0,0.4);
+  }
+
+  img {
+    ${props => props.theme.image.border_radius}
+  }
+`;
 
 const TeamGrid = styled.div`
   display: grid;
@@ -109,8 +131,7 @@ const TeamGrid = styled.div`
 `;
 
 const Title = styled.p`
-  margin-top: 1.5em;
-  margin-bottom: .5em;
+  margin-top: .8em;
   text-align: center;
   color: ${props => props.theme.color.black.regular};
 `;
@@ -118,7 +139,10 @@ const Title = styled.p`
 const Subtitle = styled.p`
   ${props => props.theme.font_size.small};
   color: ${props => props.theme.color.black.light};
+  padding-bottom: 1em;
   padding-top: .5em;
+  padding-left: .5em;
+  padding-right: .5em;
 `;
 
 export default Projects;

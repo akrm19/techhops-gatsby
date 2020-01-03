@@ -31,6 +31,9 @@ const theme = {
     md: '991px',
     lg: '1199px',
   },
+  image: {
+    border_radius: 'border-radius: 10px;'
+  }
 };
 
 export default theme;
