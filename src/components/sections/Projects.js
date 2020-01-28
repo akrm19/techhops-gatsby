@@ -7,10 +7,10 @@ import Img from 'gatsby-image';
 import GifPlayer from 'react-gif-player';
 import DrumKitGameGif from '../../images/projects/DrumKitOptimized.gif';
 import DrumKitGamePng from '../../images/projects/DrumKitGame.png';
-import Write2CongressAndroidGif from '../../images/projects/write2congress_android.gif';
-import Write2CongressAndroidJpg from '../../images/projects/write2congress_android.jpg';
-import Write2CongressReactGif from '../../images/projects/write2congress_react.gif';
-import Write2CongressReactPng from '../../images/projects/write2congress_react.png';
+import Write2CongressAndroidGif from '../../images/projects/write2congressAndroidG.gif';
+import Write2CongressAndroidJpg from '../../images/projects/write2congressAndroid.jpg';
+import Write2CongressReactGif from '../../images/projects/write2congressReactG.gif';
+import Write2CongressReactPng from '../../images/projects/write2congressReact.png';
 
 const Portfolio = [
   {
