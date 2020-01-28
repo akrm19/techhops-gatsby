@@ -1,28 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import ExternalLink from '@common/ExternalLink';
 import { Section, Container } from '@components/global';
+import ExternalLink from '@common/ExternalLink';
+import Img from 'gatsby-image';
+import GifPlayer from 'react-gif-player';
+import DrumKitGameGif from '../../images/projects/DrumKitOptimized.gif';
+import DrumKitGamePng from '../../images/projects/DrumKitGame.png';
+import Write2CongressAndroidGif from '../../images/projects/write2congress_android.gif';
+import Write2CongressAndroidJpg from '../../images/projects/write2congress_android.jpg';
+import Write2CongressReactGif from '../../images/projects/write2congress_react.gif';
+import Write2CongressReactPng from '../../images/projects/write2congress_react.png';
 
 const Portfolio = [
   {
     name: 'Write 2 Congress - Android App',
     description: 'Android App to view bills, legislators, their vote history, sponsored bills, committees, and contact info.',
-    image: 'write2Congress_android.jpg', 
     url: 'https://play.google.com/store/apps/details?id=com.ron.write2congress',
+    image: Write2CongressAndroidJpg,
+    gif: Write2CongressAndroidGif
   },
   {
     name: 'Write 2 Congress - Web',
     description: 'Write 2 Congress version written in React.',
-    image: 'write2Congress_react.png',
     url: 'http://www.write2congress.com/',
+    // image: 'write2Congress_react.png',
+    image: Write2CongressReactPng,
+    gif: Write2CongressReactGif
   },
   {
     name: 'Drum Kit Game',
     description: 'A drum kit game created in React and inspired by the vanilla JS Drum Kit from JavaScript 30.',
-    image: 'DrumKitGame.png', 
     url: 'http://drum-kit-game.azurewebsites.net/',
+    image: DrumKitGamePng,
+    gif: DrumKitGameGif
   },
 ];
 
@@ -50,16 +61,22 @@ const Projects = () => (
         <Container style={{ position: 'relative' }}>
           <h1>Recent Projects</h1>
           <TeamGrid>
-            {Portfolio.map(({ name, description, image, url }) => {
-              const img = data.allFile.edges.find(
+            {Portfolio.map(({ name, description, image, url, gif }) => {
+              const img = gif ? image : data.allFile.edges.find(
                 ({ node }) => node.relativePath === image
               ).node;
 
               return (
                 <ExternalLink key={name} href={url}>
                   <ProjCard>
-                    <Img fluid={img.childImageSharp.fluid} alt={name} />
                     <Title>{name}</Title>
+                    {gif ?
+                    (
+                      <GifPlayer gif={gif} still={image} autoplay={true} />
+                    ) : 
+                    (
+                      <Img fluid={img.childImageSharp.fluid} alt={name} />
+                    )}
                     <Subtitle>{description}</Subtitle>
                   </ProjCard>
                 </ExternalLink>
@@ -76,7 +93,11 @@ const ProjCard = styled.div`
   border: 1px solid rgb(233, 233, 233);
   ${props => props.theme.image.border_radius}
   box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-  height: 35em;
+  // max-height: 35em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 
   :hover {
     box-shadow: 0 25px 35px rgba(0,0,0,0.3);
@@ -88,12 +109,16 @@ const ProjCard = styled.div`
   }
 
   img {
+    max-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    max-height:25em;
     ${props => props.theme.image.border_radius}
   }
 
   @media (max-width: ${props => props.theme.screen.sm}) {
     height: auto;
-    max-height: 35em;
+    // max-height: 35em;
 
     img {
       // max-height: 25em;
@@ -109,6 +134,8 @@ const TeamGrid = styled.div`
   justify-content: space-evenly;
   width: 100%;
   margin-top: 2.5em;
+
+  grid-auto-rows: 1fr;
 
   a:link {
     text-decoration: none;
