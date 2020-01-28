@@ -24,7 +24,6 @@ const Portfolio = [
     name: 'Write 2 Congress - Web',
     description: 'Write 2 Congress version written in React.',
     url: 'http://www.write2congress.com/',
-    // image: 'write2Congress_react.png',
     image: Write2CongressReactPng,
     gif: Write2CongressReactGif
   },
@@ -56,7 +55,6 @@ const Projects = () => (
       }
     `}
     render={data => (
-      // <Section id="projects" accent="secondary">
       <Section id="projects">
         <Container style={{ position: 'relative' }}>
           <h1>Recent Projects</h1>
@@ -93,7 +91,6 @@ const ProjCard = styled.div`
   border: 1px solid rgb(233, 233, 233);
   ${props => props.theme.image.border_radius}
   box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-  // max-height: 35em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,7 +116,6 @@ const ProjCard = styled.div`
   @media (max-width: ${props => props.theme.screen.sm}) {
     height: auto;
     // max-height: 35em;
-
     img {
       // max-height: 25em;
     }
@@ -152,6 +148,10 @@ const TeamGrid = styled.div`
   @media (max-width: ${props => props.theme.screen.md}) {
     width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    grid-auto-rows: auto;
   }
 
   @media (max-width: ${props => props.theme.screen.xs}) {
