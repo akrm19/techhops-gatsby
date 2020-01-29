@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { Section, Container } from '@components/global';
 import ExternalLink from '@common/ExternalLink';
 import Img from 'gatsby-image';
-import GifPlayer from 'react-gif-player';
+// import GifPlayer from 'react-gif-player';
 import DrumKitGameGif from '../../images/projects/DrumKitOptimized.gif';
 import DrumKitGamePng from '../../images/projects/DrumKitGame.png';
 import Write2CongressAndroidGif from '../../images/projects/write2congressAndroidG.gif';
@@ -17,6 +17,7 @@ const Portfolio = [
     name: 'Write 2 Congress - Android App',
     description: 'Android App to view bills, legislators, their vote history, sponsored bills, committees, and contact info.',
     url: 'https://play.google.com/store/apps/details?id=com.ron.write2congress',
+    imageDesc: 'Write2Congress Android app demo',
     image: Write2CongressAndroidJpg,
     gif: Write2CongressAndroidGif
   },
@@ -24,6 +25,7 @@ const Portfolio = [
     name: 'Write 2 Congress - Web',
     description: 'Write 2 Congress version written in React.',
     url: 'http://www.write2congress.com/',
+    imageDesc: 'Write 2 Congress web demo',
     image: Write2CongressReactPng,
     gif: Write2CongressReactGif
   },
@@ -31,6 +33,7 @@ const Portfolio = [
     name: 'Drum Kit Game',
     description: 'A drum kit game created in React and inspired by the vanilla JS Drum Kit from JavaScript 30.',
     url: 'http://drum-kit-game.azurewebsites.net/',
+    imageDesc: 'Drum Kit game demo',
     image: DrumKitGamePng,
     gif: DrumKitGameGif
   },
@@ -59,7 +62,7 @@ const Projects = () => (
         <Container style={{ position: 'relative' }}>
           <h1>Recent Projects</h1>
           <TeamGrid>
-            {Portfolio.map(({ name, description, image, url, gif }) => {
+            {Portfolio.map(({ name, description, imageDesc, image, url, gif }) => {
               const img = gif ? image : data.allFile.edges.find(
                 ({ node }) => node.relativePath === image
               ).node;
@@ -70,10 +73,11 @@ const Projects = () => (
                     <Title>{name}</Title>
                     {gif ?
                     (
-                      <GifPlayer gif={gif} still={image} autoplay={true} />
+                      // <GifPlayer gif={gif} still={image} autoplay={true} />
+                      <img src={gif} alt={imageDesc} />
                     ) : 
                     (
-                      <Img fluid={img.childImageSharp.fluid} alt={name} />
+                      <Img fluid={img.childImageSharp.fluid} alt={imageDesc} />
                     )}
                     <Subtitle>{description}</Subtitle>
                   </ProjCard>
