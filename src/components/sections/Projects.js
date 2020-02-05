@@ -11,6 +11,7 @@ import Write2CongressAndroidGif from '../../images/projects/write2congressAndroi
 import Write2CongressAndroidJpg from '../../images/projects/write2congressAndroid.jpg';
 import Write2CongressReactGif from '../../images/projects/write2congressReactG.gif';
 import Write2CongressReactPng from '../../images/projects/write2congressReact.png';
+import VisualCongressGif from '../../images/projects/visual_congress.gif';
 
 const Portfolio = [
   {
@@ -22,6 +23,14 @@ const Portfolio = [
     gif: Write2CongressAndroidGif
   },
   {
+    name: 'Drum Kit Game',
+    description: 'A drum kit game created in React and inspired by the vanilla JS Drum Kit from JavaScript 30.',
+    url: 'http://drum-kit-game.azurewebsites.net/',
+    imageDesc: 'Drum Kit game demo',
+    image: DrumKitGamePng,
+    gif: DrumKitGameGif
+  },
+  {
     name: 'Write 2 Congress - Web',
     description: 'Write 2 Congress version written in React.',
     url: 'http://www.write2congress.com/',
@@ -30,12 +39,12 @@ const Portfolio = [
     gif: Write2CongressReactGif
   },
   {
-    name: 'Drum Kit Game',
-    description: 'A drum kit game created in React and inspired by the vanilla JS Drum Kit from JavaScript 30.',
-    url: 'http://drum-kit-game.azurewebsites.net/',
-    imageDesc: 'Drum Kit game demo',
+    name: 'Congress Visualized (WiP)',
+    description: 'A visualization of congress members by gender. The pie charts are generated programmatically using D3.js and React.',
+    url: 'https://visual-congress.netlify.com/',
+    imageDesc: 'Congress Visualized demo',
     image: DrumKitGamePng,
-    gif: DrumKitGameGif
+    gif: VisualCongressGif
   },
 ];
 
@@ -73,7 +82,6 @@ const Projects = () => (
                     <Title>{name}</Title>
                     {gif ?
                     (
-                      // <GifPlayer gif={gif} still={image} autoplay={true} />
                       <img src={gif} alt={imageDesc} />
                     ) : 
                     (
