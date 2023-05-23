@@ -7,9 +7,9 @@ import { Section, Container } from '@components/global';
 
 const title = 'Hi I am Ron';
 const aboutMeText = 
-`I am an avid traveler, runner, and occasional homebrewer.
+`I am an avid traveler, runner, and a past homebrewer.
 
-I am also a goal-oriented software engineer and highly skilled professional with more than nine years of experience in software development including mobile and web. 
+I am also a goal-oriented software engineer and highly skilled professional with more than twelve years of experience in software development including mobile, web, and in Azure. 
 
 I had the opportunity to have hands-on experience in the entire software development life cycle, including design, development, and maintenance. I am constantely learning and I am eager to work with cutting-edge technologies.`;
 

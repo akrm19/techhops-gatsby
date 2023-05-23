@@ -13,7 +13,7 @@ const Footer = () => {
             Design modified from Gatsby-absurd 
           </span>
           <span>
-            &copy; Copyright 2020, TechHops.
+            &copy; Copyright 2023, TechHops.
           </span>
         </Copyright>
       </FooterWrapper>
