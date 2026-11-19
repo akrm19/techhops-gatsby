@@ -84,24 +84,3 @@ Five Dependabot alerts are left open on purpose, because they can't be fixed wit
 - `@parcel/reporter-dev-server`: Parcel needs all its packages on one version, and Gatsby pins 2.8.3. Gatsby only uses Parcel to compile its config files and never runs Parcel's dev server.
 
 All five affect build-time or dev-server code that only processes this repo's own files. None of it ships to visitors.
-
-## Domain and DNS
-
-- The domain `techhops.com` is registered at **Squarespace Domains** (formerly Google Domains), and DNS is managed there, not at Netlify.
-- Records:
-  - `@` A record → Netlify's load balancer. It currently points to the legacy `104.198.14.52`; Netlify recommends `75.2.60.5`.
-  - `www` CNAME → `techhops.netlify.com`.
-- HTTPS certificates are issued automatically by Netlify (Let's Encrypt).
-
-## History
-
-- **2020-02**: Last deploy on Gatsby 2 for over five years.
-- **2023-05**: Content update (year, About text) committed but never deployed; the cause is unknown since Netlify had pruned the build logs.
-- **2026-11**: Upgraded to Gatsby 5, React 18, `gatsby-plugin-image`, the Head API, Yarn, and Node 22; added `netlify.toml` ([PR #3](https://github.com/akrm19/techhops-gatsby/pull/3)). Deployed to production.
-
-## Possible next steps
-
-- Switch the apex A record to `75.2.60.5`.
-- Upgrade styled-components to v6 and Prettier to v3; replace the unmaintained `react-scrollspy`.
-- Clean up starter leftovers: `src/pages/page-2.js`, the `name`/`author` in `package.json`, the empty `SEO_DATA.url`, and the Congress Visualized project entry, which reuses the drum-kit image.
-- Longer term: consider rebuilding on Astro.
