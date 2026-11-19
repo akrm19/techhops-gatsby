@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import ExternalLink from '@common/ExternalLink';
 import { Section, Container } from '@components/global';
 
@@ -130,9 +130,7 @@ const Contact = () => (
           name: { eq: "austin_black_white" }
         ) {
           childImageSharp {
-            fluid(maxWidth: 860) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
+            gatsbyImageData(width: 860, placeholder: BLURRED)
           }
         }
       }
@@ -160,7 +158,7 @@ const Contact = () => (
               </ContactMethods>
             </div>
             <Art>
-              <Img fluid={data.photo_ron.childImageSharp.fluid} alt={'Austin Skyline - photo by Dwayne Hills'} />
+              <GatsbyImage image={getImage(data.photo_ron)} alt={'Austin Skyline - photo by Dwayne Hills'} />
             </Art>
           </Grid>
         </Container>

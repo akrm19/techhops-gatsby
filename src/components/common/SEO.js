@@ -1,5 +1,4 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 
 const SEO_DATA = {
   description: 'TechHops - Ron Macedo Site',
@@ -19,7 +18,7 @@ const SEO_DATA = {
 
 const SEO = () => {
   return (
-    <Helmet>
+    <>
       <meta property="fb:app_id" content={SEO_DATA.facebook.id} />
       <meta property="og:title" content={SEO_DATA.title} />
       <meta property="og:type" content="website" />
@@ -40,7 +39,7 @@ const SEO = () => {
       <meta name="author" content={SEO_DATA.author} />
       <title>{SEO_DATA.title}</title>
       <html lang="en" />
-    </Helmet>
+    </>
   );
 };
 

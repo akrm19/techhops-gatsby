@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { Section, Container } from '@components/global';
 
@@ -22,9 +22,7 @@ const About = () => (
           name: { eq: "ron" }
         ) {
           childImageSharp {
-            fluid(maxWidth: 760) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
+            gatsbyImageData(width: 760, placeholder: BLURRED)
           }
         }
       }
@@ -40,12 +38,12 @@ const About = () => (
               </p>
             </div>
             <Art>
-              <Img fluid={data.photo_ron.childImageSharp.fluid} />
+              <GatsbyImage image={getImage(data.photo_ron)} alt="Ron" />
             </Art>
           </Grid> */}
           <Grid inverse>
             <Art>
-              <Img fluid={data.photo_ron.childImageSharp.fluid} />
+              <GatsbyImage image={getImage(data.photo_ron)} alt="Ron" />
             </Art>
             <div>
               <h2>{title}</h2>
