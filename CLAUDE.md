@@ -8,7 +8,7 @@ TechHops personal portfolio site: a single-page Gatsby 5 / React 18 site built f
 
 ## Commands
 
-The project uses Yarn (`yarn.lock`) and Node 22 (pinned for Netlify in `netlify.toml`).
+The project uses Yarn (`yarn.lock`) and Node 22 (pinned for Netlify in `netlify.toml`). `resolutions` in `package.json` forces patched versions of transitive dependencies that Gatsby pins. Don't remove them, and after any dependency change verify both `yarn build` and `yarn dev` (the README's "Dependency security" section explains which alerts are left open and why).
 
 - `yarn install`: install dependencies
 - `yarn dev` (or `yarn start`): start the dev server with `gatsby develop`
