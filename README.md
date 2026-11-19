@@ -1,35 +1,97 @@
-# gatsby-absurd
+# TechHops
 
-An absurd Gatsby starter. The collection of illustrations, [absurd.design](https://absurd.design/) by [Diana Valeanu](https://twitter.com/diana_valeanu) is a very fascinating and beautiful project with some pretty thoughtful concepts. Experimentation on how that could be put together on a site ended up as this starter.
+Source for [techhops.com](https://techhops.com), my personal portfolio site. It is a single-page Gatsby 5 / React 18 site, originally built from the [gatsby-absurd](https://github.com/ajayns/gatsby-absurd) starter (illustrations from [absurd.design](https://absurd.design/)).
 
-[Live Demo](https://gatsby-absurd.netlify.com/)
+## Requirements
 
-## Installation
+- **Node 22**, managed with [nvm](https://github.com/nvm-sh/nvm) (`nvm install 22 && nvm alias default 22`). Netlify builds with the same version (set in `netlify.toml`).
+- **Yarn** (the repo has a `yarn.lock`; don't mix in npm or a `package-lock.json`).
+- Optional, for deploy testing: **netlify-cli** (`npm install -g netlify-cli`, then `netlify login`).
 
-Install the dependencies:
+## Local development
 
-### `yarn install`
+```sh
+yarn install   # install dependencies
+yarn dev       # dev server at http://localhost:8000
+yarn build     # production build to ./public
+yarn clean     # delete .cache and public; fixes most odd build/dev errors
+yarn format    # Prettier on src/**/*.js
+```
 
-Run the development server:
+## Editing content
 
-### `yarn dev`
+Everything is on one page (`src/pages/index.js`), and content lives inside the section components in `src/components/sections/`:
 
-Production build to `/public`:
+| Section  | File          | What to edit |
+| -------- | ------------- | ------------ |
+| Header   | `Header.js`   | Intro text and illustration |
+| About    | `About.js`    | Bio text; photos come from `src/images/photos` |
+| Projects | `Projects.js` | The `Portfolio` array; images in `src/images/projects` or imported GIFs/PNGs |
+| Tech     | `Tech.js`     | Tech logos (SVG imports) |
+| Contact  | `Contact.js`  | Contact links |
+| Footer   | `Footer.js`   | Social links, copyright year |
 
-### `yarn build`
+Other places:
 
-Cleanup cache (often fixes misc errors when run before `yarn dev`):
+- **Nav items** are in `NAV_ITEMS` in `src/components/common/Navbar`. Each item lowercased must match a section's `<Section id="...">`, so rename both together.
+- **SEO / meta tags**: `SEO_DATA` in `src/components/common/SEO.js` (rendered via Gatsby's Head API; every page exports `Head = () => <SEO />`).
+- **Favicon, manifest, Google Fonts**: `gatsby-config.js`.
+- **Theme colors, fonts, breakpoints**: `src/styles/theme.js`.
 
-### `yarn clean`
+See [CLAUDE.md](CLAUDE.md) for more on the code structure (import aliases, the SVG webpack rule, image handling).
 
-## Content
+## Deployment
 
-Each of the sections in the site are placed in `src/sections`. Data is usually separated out into objects/arrays to be rendered in the component.
+The site is hosted on **Netlify** (site name `techhops`, free plan), connected to this GitHub repo.
 
-## SEO
+| Trigger | Result |
+| ------- | ------ |
+| Push or merge to `master` | Production deploy to techhops.com (about a minute) |
+| Pull request | Deploy preview at `https://deploy-preview-<PR#>--techhops.netlify.app`, linked from the PR checks |
+| Push to any other branch | Nothing (branch deploys are off) |
 
-The component `src/components/common/SEO.js` handles all meta data and SEO content, modify the `SEO_DATA` variable to add the data automatically. For application manifest data and favicon, modify the `gatsby-plugin-manifest` configuration in `gatsby-config.js`.
+Build settings are in `netlify.toml` (`yarn build`, publish `public`, Node 22) and override the Netlify dashboard. There are no environment variables, functions, or forms.
 
-## Styling
+### Normal workflow
 
-This project uses [styled-components]() to handle styling: `src/styles/theme.js` defines the styling base and `src/styles/GlobalStyles.js` includes basic element styles along with the CSS Reset.
+1. Branch off `master`, make changes, check with `yarn dev` / `yarn build`.
+2. Push the branch and open a PR. Check the Netlify deploy preview.
+3. Merge. Netlify deploys production automatically.
+
+### Testing a deploy without a PR
+
+With netlify-cli installed and logged in:
+
+```sh
+netlify link                    # once per clone; pick the "techhops" site (.netlify/ is gitignored)
+netlify build                   # runs the build exactly as Netlify would
+netlify deploy --dir=public     # draft deploy to a unique preview URL; does not touch production
+```
+
+Avoid `netlify deploy --prod` unless you deliberately want to bypass git.
+
+### Rolling back
+
+In the Netlify dashboard: **Deploys**, pick an earlier deploy, **Publish deploy**. Or revert the commit on `master`.
+
+## Domain and DNS
+
+- The domain `techhops.com` is registered at **Squarespace Domains** (formerly Google Domains), and DNS is managed there, not at Netlify.
+- Records:
+  - `@` A record → Netlify's load balancer. It currently points to the legacy `104.198.14.52`; Netlify recommends `75.2.60.5`.
+  - `www` CNAME → `techhops.netlify.com`.
+- HTTPS certificates are issued automatically by Netlify (Let's Encrypt).
+
+## History
+
+- **2020-02**: Last deploy on Gatsby 2 for over five years.
+- **2023-05**: Content update (year, About text) committed but never deployed; the cause is unknown since Netlify had pruned the build logs.
+- **2026-11**: Upgraded to Gatsby 5, React 18, `gatsby-plugin-image`, the Head API, Yarn, and Node 22; added `netlify.toml` ([PR #3](https://github.com/akrm19/techhops-gatsby/pull/3)). Deployed to production.
+
+## Possible next steps
+
+- Switch the apex A record to `75.2.60.5`.
+- Work through the remaining Dependabot alerts.
+- Upgrade styled-components to v6 and Prettier to v3; replace the unmaintained `react-scrollspy`.
+- Clean up starter leftovers: `src/pages/page-2.js`, the `name`/`author` in `package.json`, the empty `SEO_DATA.url`, and the Congress Visualized project entry, which reuses the drum-kit image.
+- Longer term: consider rebuilding on Astro.

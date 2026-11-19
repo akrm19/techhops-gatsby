@@ -31,4 +31,4 @@ The project uses Yarn (`yarn.lock`) and Node 22 (pinned for Netlify in `netlify.
 
 ## Deployment
 
-Netlify site `techhops` (https://techhops.com) builds from the GitHub repo on pushes to `master` only; build settings live in `netlify.toml`. Other branches are not built, so test with `netlify build` and a draft `netlify deploy --dir=public` (needs `netlify link`; `.netlify/` is gitignored).
+Netlify site `techhops` (https://techhops.com) builds production from pushes to `master`, and PRs get deploy previews. Build settings live in `netlify.toml`. Other branches are not built, so to test without a PR use `netlify build` and a draft `netlify deploy --dir=public` (needs `netlify link`; `.netlify/` is gitignored). Never run `netlify deploy --prod` unless explicitly asked. The README has the full deploy workflow, the DNS setup (Squarespace Domains), rollback steps, and the to-do list. Keep it updated when any of those change.
