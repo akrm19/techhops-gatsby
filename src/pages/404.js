@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Layout from '@common/Layout';
+import SEO from '@common/SEO';
 import { Container } from '@components/global';
 
 const NotFoundPage = () => (
@@ -11,5 +12,7 @@ const NotFoundPage = () => (
     </Container>
   </Layout>
 );
+
+export const Head = () => <SEO />;
 
 export default NotFoundPage;

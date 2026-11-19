@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import Layout from '@common/Layout';
+import SEO from '@common/SEO';
 import { Container } from '@components/global';
 
 const SecondPage = () => (
@@ -13,5 +14,7 @@ const SecondPage = () => (
     </Container>
   </Layout>
 );
+
+export const Head = () => <SEO />;
 
 export default SecondPage;

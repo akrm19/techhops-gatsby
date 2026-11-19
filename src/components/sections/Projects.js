@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 import { Section, Container } from '@components/global';
 import ExternalLink from '@common/ExternalLink';
-import Img from 'gatsby-image';
-// import GifPlayer from 'react-gif-player';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import DrumKitGameGif from '../../images/projects/DrumKitOptimized.gif';
 import DrumKitGamePng from '../../images/projects/DrumKitGame.png';
 import Write2CongressAndroidGif from '../../images/projects/write2congressAndroidG.gif';
@@ -57,9 +56,7 @@ const Projects = () => (
             node {
               relativePath
               childImageSharp {
-                fluid(maxWidth: 400, maxHeight: 400) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(width: 400, height: 400)
               }
             }
           }
@@ -85,7 +82,7 @@ const Projects = () => (
                       <img src={gif} alt={imageDesc} />
                     ) : 
                     (
-                      <Img fluid={img.childImageSharp.fluid} alt={imageDesc} />
+                      <GatsbyImage image={getImage(img)} alt={imageDesc} />
                     )}
                     <Subtitle>{description}</Subtitle>
                   </ProjCard>
