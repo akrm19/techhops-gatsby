@@ -74,6 +74,17 @@ Avoid `netlify deploy --prod` unless you deliberately want to bypass git.
 
 In the Netlify dashboard: **Deploys**, pick an earlier deploy, **Publish deploy**. Or revert the commit on `master`.
 
+## Dependency security
+
+Gatsby 5 is barely maintained, and its packages pin some old transitive dependencies. The `resolutions` field in `package.json` forces patched versions of those (sharp, webpack, webpack-dev-middleware, lodash, and others). After changing dependencies, run both `yarn build` and `yarn dev` to make sure the overrides still work.
+
+Five Dependabot alerts are left open on purpose, because they can't be fixed without breaking Gatsby:
+- `decode-uri-component` (×2) and `file-type`: the patched versions are ESM-only, and Gatsby loads them with `require`.
+- `@graphql-tools/utils`: the fix is four major versions ahead of what Gatsby's GraphQL codegen expects.
+- `@parcel/reporter-dev-server`: Parcel needs all its packages on one version, and Gatsby pins 2.8.3. Gatsby only uses Parcel to compile its config files and never runs Parcel's dev server.
+
+All five affect build-time or dev-server code that only processes this repo's own files. None of it ships to visitors.
+
 ## Domain and DNS
 
 - The domain `techhops.com` is registered at **Squarespace Domains** (formerly Google Domains), and DNS is managed there, not at Netlify.
@@ -91,7 +102,6 @@ In the Netlify dashboard: **Deploys**, pick an earlier deploy, **Publish deploy*
 ## Possible next steps
 
 - Switch the apex A record to `75.2.60.5`.
-- Work through the remaining Dependabot alerts.
 - Upgrade styled-components to v6 and Prettier to v3; replace the unmaintained `react-scrollspy`.
 - Clean up starter leftovers: `src/pages/page-2.js`, the `name`/`author` in `package.json`, the empty `SEO_DATA.url`, and the Congress Visualized project entry, which reuses the drum-kit image.
 - Longer term: consider rebuilding on Astro.
